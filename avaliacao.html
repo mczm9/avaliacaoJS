@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Avaliação</title>
+    <style type="text/css">
+    button{
+        background-color: #391075;
+        border: 2px solid #240357;
+        border-radius: 20px;
+        cursor: pointer;
+    }
+    #texto{
+        width: 300px;
+        background-color: #391075;
+    }
+    .hide{
+        display: none;
+    }
+    fieldset{
+        width: max-content;
+    }
+
+    body{
+        background-color: #67598f;
+    }
+
+    #check1{
+        background-color: #391075;
+    }
+
+    #selecao{
+        background-color: #391075;
+        color: white;
+    }
+    .b{
+        color: white;
+    }
+    </style>
+</head>
+<body>
+    <form>
+        <b>Nome: </b> <input type="text" id="texto"/> <br>
+        <b>Turma: </b> <select name="sel" id="selecao"> 
+        <option value="1º Informática">1º Informática</option>
+        <option value="2º Informática">2º Informática</option>
+        <option value="3º Informática">3º Informática</option>
+        <option value="1º Informática">1º Administração</option>
+        <option value="2º Informática">2º Administração</option>
+        <option value="3º Informática">3º Administração</option>
+        <option value="1º Informática">1º Enfermagem</option>
+        <option value="2º Informática">2º Enfermagem</option>
+        <option value="3º Informática">3º Enfermagem</option>
+        </select> <br>
+        <br>
+        <b>1.</b> Quais cursos são ofertados na EEEP Amélia Figueiredo de Lavor? <br>
+        <textarea name="tex1" id="texto2" cols="56" rows="5"></textarea> <br>
+        <br>
+        <b>2.</b> Marque as opções que possui os sistemas de numerações novos que <br> 
+        aprendemos no 1º de Informática. <br>
+        Sistema Octal <input type="checkbox" id="check1"> <br>
+        Sistema Binário <input type="checkbox" id="check2"> <br>
+        Sistema Decimal <input type="checkbox" id="check3"> <br>
+        Algarismos Hexadecimal <input type="checkbox" id="check4"> <br>
+        <br>
+        <b>3.</b> Qual o produto abaixo é mais adequado para limpar uma memória RAM? <br>
+        <label for="iso">Álcool Isopropílico</label>
+        <input type="radio" name="limpeza" id="isop"> <br>
+        <label for="con">Limpa Contato</label>
+        <input type="radio" name="limpeza" id="cont"> <br>
+        <label for="alc">Álcool 70%</label>
+        <input type="radio" name="limpeza" id="alc"> <br>
+        <label for="agu">Água</label> 
+        <input type="radio" name="limpeza" id="agua"> <br>
+        <br>
+        <b>4.</b> Podemos afirmar que o modo de funcionamento de memória RAM em <br> 
+        DUAL CHANEL só pode ser feito com pares de módulos de memória. <br> 
+        Marque se a afirmação é verdadeira ou falsa. <br>
+        <label for="ver">Verdadeira</label>
+        <input type="radio" name="VF" id="ver"> <br>
+        <label for="fal">Falsa</label> 
+        <input type="radio" name="VF" id="fal"> <br>
+        <br>
+        <button type="button" onclick="corrigir()"><b>Corrigir</b></button>
+        <br>
+        <br>
+        <fieldset class="hide">
+            <legend><b>Resumo</b></legend>
+            <div id="nome"></div>
+            <div id="turma"></div>
+            <div id="1."></div>
+            <div id="2.1"></div>
+            <div id="2.2"></div>
+            <div id="2.3"></div>
+            <div id="2.4"></div>
+            <div id="3."></div>
+            <div id="4."></div>
+        </fieldset>
+    </form>
+        <script>
+        function corrigir() {
+        document.querySelector(".hide").style.display = "block";
+        let camText = document.getElementById("texto").value;
+        document.getElementById("nome").innerHTML = "Nome: " + camText;
+        let camSel = document.getElementById("selecao").value;
+        document.getElementById("turma").innerHTML = "Turma: " + camSel;
+        let camTextArea = document.getElementById("texto2").value;
+        document.getElementById("1.").innerHTML = "1) R: " + camTextArea;
+      
+        let camCheckOct = document.getElementById("check1");
+        let camCheckBin = document.getElementById("check2");
+        let camCheckDec = document.getElementById("check3");
+        let camCheckHex = document.getElementById("check4");
+      
+        if (camCheckOct.checked) {
+          document.getElementById("2.1").innerHTML = "2) R: Octal";
+        }
+        if (camCheckBin.checked) {
+          document.getElementById("2.2").innerHTML = "2) R: Binário";
+        }
+        if (camCheckDec.checked) {
+          document.getElementById("2.3").innerHTML = "2) R: Decimal";
+        }
+        if (camCheckHex.checked) {
+          document.getElementById("2.4").innerHTML = "2) R: Hexadecimal";
+        }
+      
+        if (document.getElementById("isop").checked) {
+          document.getElementById("3.").innerHTML = "3) R: Álcool Isopropílico";
+        } else if (document.getElementById("cont").checked) {
+          document.getElementById("3.").innerHTML = "3) R: Limpa Contato";
+        } else if (document.getElementById("alc").checked) {
+          document.getElementById("3.").innerHTML = "3) R: Álcool 70%";
+        } else if (document.getElementById("agua").checked) {
+          document.getElementById("3.").innerHTML = "3) R: Água";
+        }
+        if (document.getElementById("ver").checked) {
+          document.getElementById("4.").innerHTML = "4) R: Verdadeira";
+        } else if (document.getElementById("fal").checked) {
+          document.getElementById("4.").innerHTML = "4) R: Falsa";
+        }
+      }
+    </script>
+</body>
+</html>
